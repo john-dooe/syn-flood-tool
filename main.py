@@ -3,7 +3,7 @@ import sys
 import threading
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from window import Ui_Form
+from layout import Ui_Form
 from syn_flood import syn_flood
 
 
