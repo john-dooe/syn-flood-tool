@@ -1,10 +1,10 @@
 import re
 import sys
 import threading
-from window import Ui_Form
-from syn_flood import syn_flood
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from window import Ui_Form
+from syn_flood import syn_flood
 
 
 class MyWindow(QMainWindow, Ui_Form):
