@@ -1,4 +1,4 @@
-from scapy.all import *
+from scapy.all import IP, TCP, send
 
 
 def syn_flood(target_ip, target_port, stop):

@@ -14,8 +14,6 @@ class MyWindow(QMainWindow, Ui_Form):
         self.setWindowIcon(QIcon('icon/reze.jpg'))
         self.start_button.clicked.connect(self.start)
         self.stop_button.clicked.connect(self.stop)
-
-        self.threads_list = []
         self.stop_threads = False
 
     def check_format(self, target_ip, target_port, thread_num):
@@ -44,7 +42,6 @@ class MyWindow(QMainWindow, Ui_Form):
                 for i in range(thread_num):
                     t = threading.Thread(target=syn_flood, args=(target_ip, target_port, (lambda: self.stop_threads)))
                     t.start()
-                    self.threads_list.append(t)
             else:
                 QMessageBox.critical(self, '错误', '数据格式错误', QMessageBox.Yes)
         else:
@@ -55,8 +52,9 @@ class MyWindow(QMainWindow, Ui_Form):
         self.start_button.setEnabled(True)
         self.stop_button.setEnabled(False)
         self.stop_threads = True
-        for t in self.threads_list:
-            t.join()
+        for t in threading.enumerate():
+            if t != threading.current_thread():
+                t.join()
 
 
 if __name__ == '__main__':
