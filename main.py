@@ -11,7 +11,7 @@ class MyWindow(QMainWindow, Ui_Form):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
-        self.setWindowIcon(QIcon('icon/reze.png'))
+        self.setWindowIcon(QIcon('icon/reze.jpg'))
         self.start_button.clicked.connect(self.start)
         self.stop_button.clicked.connect(self.stop)
 
